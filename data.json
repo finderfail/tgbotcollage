@@ -1,0 +1,34 @@
+{
+  "guests": [
+    {
+      "name": "Antot",
+      "email": "i@castirio.com",
+      "status": "подтверждено"
+    },
+    {
+      "name": "Alexey",
+      "email": "findercast@gmail.com",
+      "status": "отклонено"
+    }
+  ],
+  "prefs": {
+    "music": [
+      "pop",
+      "rock",
+      "pop",
+      "jazz"
+    ],
+    "food": [
+      "пицца",
+      "суши",
+      "салаты",
+      "суши"
+    ],
+    "theme": "бохо"
+  },
+  "budget": {
+    "limit": 50000,
+    "items": []
+  },
+  "tasks": []
+}

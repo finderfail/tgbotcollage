@@ -1,0 +1,16 @@
+{
+  "name": "tgbotcollage",
+  "version": "1.0.0",
+  "description": "Telegram bot for party planning coursework",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "telegraf": "^4.16.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
