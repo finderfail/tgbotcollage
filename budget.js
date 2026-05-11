@@ -1,11 +1,12 @@
 const st = require('./store')
+const { parseRusDate } = require('./date')
 const addExpense = (item, sumText, dateText) => {
   const sum = parseFloat(sumText)
   if (isNaN(sum) || sum < 0){
     return 'неверная сумма'
   }
-  const date = new Date(dateText)
-  if (date.toString() === 'Invalid Date'){
+  const date = parseRusDate(dateText)
+  if (!date){
     return 'неверная дата'
   }
   const data = st.loadData()

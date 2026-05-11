@@ -1,7 +1,8 @@
 const st = require('./store')
+const { parseRusDate, formatRusDate } = require('./date')
 const addTask = (title, dateText) => {
-  const date = new Date(dateText)
-  if (date.toString() === 'Invalid Date'){
+  const date = parseRusDate(dateText)
+  if (!date){
     return 'неверная дата'
   }
   const data = st.loadData()
@@ -16,7 +17,7 @@ const listTasks = (filter) => {
   }
   let result = 'Задачи:\n'
   const now = new Date()
-  const today = now.toISOString().slice(0, 10)
+  const today = formatRusDate(now)
   for (let i = 0; i < data.tasks.length; i++){
     const item = data.tasks[i]
     if (filter === 'all' || !filter){
@@ -24,10 +25,12 @@ const listTasks = (filter) => {
     } else if (filter === 'today' && item.date === today){
       result += `${i + 1}. ${item.title} ${item.date} ${item.status}\n`
     } else if (filter === '3'){
-      const taskDate = new Date(item.date)
-      const diff = taskDate.getTime() - now.getTime()
-      if (diff >= 0 && diff <= 3 * 24 * 60 * 60 * 1000){
-        result += `${i + 1}. ${item.title} ${item.date} ${item.status}\n`
+      const taskDate = parseRusDate(item.date)
+      if (taskDate){
+        const diff = taskDate.getTime() - now.getTime()
+        if (diff >= 0 && diff <= 3 * 24 * 60 * 60 * 1000){
+          result += `${i + 1}. ${item.title} ${item.date} ${item.status}\n`
+        }
       }
     } else if (filter === 'done' && item.status === 'готово'){
       result += `${i + 1}. ${item.title} ${item.date} ${item.status}\n`
@@ -53,7 +56,7 @@ const completeTask = (title) => {
 const todayTasks = () => {
   const data = st.loadData()
   let result = 'Задачи на сегодня:\n'
-  const today = new Date().toISOString().slice(0, 10)
+  const today = formatRusDate(new Date())
   for (let i = 0; i < data.tasks.length; i++){
     const item = data.tasks[i]
     if (item.date === today && item.status !== 'готово'){
