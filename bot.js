@@ -10,7 +10,22 @@ if (!token){
   process.exit(1)
 }
 const bot = new Telegraf(token)
-const helpText = 'Команды:\n/guest_add имя email\n/guest_remove имя\n/guest_list\n/invite\n/status имя read|yes|no|прочитано|подтверждено|отклонено\n/pref_add музыка1,музыка2 еда1,еда2 тема\n/pref_top\n/budget_limit значение\n/budget_add статья сумма дата(дд.мм.гггг)\n/budget_list\n/budget_tot\n/task_add название дата(дд.мм.гггг)азвание дата(дд.мм.гггг)\n/task_list all|today|3|done\n/task_done название\n/today_tasks'
+const helpText = 'Команды:\n' +
+  '/guest_add имя email - добавить гостя\n' +
+  '/guest_remove имя - удалить гостя\n' +
+  '/guest_list - показать всех гостей\n' +
+  '/invite - сформировать приглашения\n' +
+  '/status имя read|yes|no|прочитано|подтверждено|отклонено - обновить статус гостя\n' +
+  '/pref_add музыка1,музыка2 еда1,еда2 тема - добавить предпочтения\n' +
+  '/pref_top - показать самые популярные предпочтения\n' +
+  '/budget_limit значение - установить общий бюджет\n' +
+  '/budget_add статья сумма дата(дд.мм.гггг) - добавить расход\n' +
+  '/budget_list - показать все расходы\n' +
+  '/budget_tot - показать итог расходов и остаток\n' +
+  '/task_add название дата(дд.мм.гггг) - добавить задачу\n' +
+  '/task_list all|today|3|done - показать задачи с фильтром\n' +
+  '/task_done название - отметить задачу как выполненную\n' +
+  '/today_tasks - показать задачи на сегодня'
 const handleText = (ctx) => {
   const msg = ctx.message
   if (!msg || !msg.text){
