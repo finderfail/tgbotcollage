@@ -23,6 +23,10 @@ TOKEN=ваш_токен
 npm start
 ```
 
+## ASCIINEMA
+
+- https://asciinema.org/a/SxPJCxlAZH64DSN8
+
 ## Команды
 
 - `/start` - запустить бота
