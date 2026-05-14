@@ -25,7 +25,7 @@ npm start
 
 ## ASCIINEMA
 
-- https://asciinema.org/a/SxPJCxlAZH64DSN8
+[![asciicast](https://asciinema.org/a/SxPJCxlAZH64DSN8.svg)](https://asciinema.org/a/SxPJCxlAZH64DSN8)
 
 ## Команды
 
